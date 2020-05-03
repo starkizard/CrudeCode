@@ -1,3 +1,4 @@
+#author: starkizard
 for t in range(int(input())):
     x,y,m=input().split()
     x=int(x)
