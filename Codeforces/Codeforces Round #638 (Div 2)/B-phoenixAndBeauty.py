@@ -1,3 +1,4 @@
+#author: starkizard
 def beautiful(arr,k):
     s=sum(arr[:k])
     bool=True
