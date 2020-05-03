@@ -1,4 +1,5 @@
-or t in range(int(input())):
+#author: starkizard
+for t in range(int(input())):
     n,k=map(int,input().split())
     s=sorted(input())
     answer=""
