@@ -1,105 +1,79 @@
-/**
- *    author:  joshi8
- *    created:
-**/
-
+/*
+    Author: Aryan Yadav
+*/
 #include <bits/stdc++.h>
-
 using namespace std;
+
+#define ll long long
+#define mod 1000000007
+#define f(i, a, b) for (long long i = a; i < b; i++)
+#define rep(i, a, b) for (long long i = a; i <= b; i++)
+#define fm(i, a, b, c) for (long long i = a; i > b; i--)
+#define vi vector<int>
+#define vl vector<long long>
+#define vs vector<string>
+#define t     \
+    ll t;     \
+    cin >> t; \
+    while (t--)
+#define pb(i) push_back(i)
+#define mp(i, j) make_pair(i, j)
+#define fast                     \
+    ios::sync_with_stdio(false); \
+    cin.tie(NULL)
+
+vl dectobin(ll n)
+{
+    vl binaryNum(16);
+    fill(binaryNum.begin(), binaryNum.end(), 0);
+
+    int i = 0;
+    while (n > 0)
+    {
+
+        // storing remainder in binary array
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    reverse(binaryNum.begin(), binaryNum.end());
+    return binaryNum;
+}
+
+void bintodec(vl &v)
+{
+    ll dec = 0;
+    ll base = 1;
+    for (ll i = v.size() - 1; i >= 0; i--)
+    {
+        dec += v[i] * base;
+        base *= 2;
+    }
+    cout << dec << "\n";
+    return;
+}
 
 int main()
 {
-    ios::sync_with_stdio(false);
-
-    long int x,t;
-    cin>>t;
-    for(x=0;x<t;x++)
+    fast;
+    ll i = 1;
+    t
     {
-        // cout<<"here";
-        long int n,m,i,j,k,l,count=1;
+        ll n, r;
         char c;
-        string s;
-        vector<int> bin1,temp,fell;
-
-        // cout<<"here";
-        cin>>n>>m>>s;
-        //cout<<"here";
-        k = n;
-        while(k!=1)
+        cin >> n >> r;
+        cin >> c;
+        vl v = dectobin(n);
+        if (c == 'L')
         {
-            //cout<<k<<endl;
-            l = k%2;
-            bin1.push_back(l);
-            k = k/2;
-            count++;
-        }
-        //cout<<k<<endl;
-        //cout<<"here";
-        bin1.push_back(k);
-        while(count<16)
-        {
-            bin1.push_back(0);
-            count++;
-        }
-        //reverse(bin1.begin(),bin1.end());
-        //cout<<"here";
-
-        // cout<<endl;
-        // for(i=0;i<bin1.size();i++)
-        // {
-        //     cout<<bin1[i];
-        // }
-
-        // cout<<s[0]<<endl;
-
-
-
-        if(s[0]=='L')
-        {
-            for(i=15;i>15-m;i--)
-            {
-                temp.push_back(bin1[i]);
-            }
-
-            for(i=15-m;i>=0;i--)
-            {
-                bin1[i+m]=bin1[i];
-            }
-
-            for(i=m-1;i>=0;i--)
-            {
-                bin1[i] = temp[m-1-i];
-            }
+            rotate(v.begin(), v.begin() + r, v.end());
+            bintodec(v);
         }
         else
-        if(s[0]=='R')
         {
-            for(i=m-1;i>=0;i--)
-            {
-                temp.push_back(bin1[i]);
-            }
-
-            for(i=m;i<=15;i++)
-            {
-                bin1[i-m]=bin1[i];
-            }
-
-            for(i=15;i>15-m;i--)
-            {
-                bin1[i] = temp[15-i];
-            }
+            rotate(v.begin(), v.begin() + v.size() - r, v.end());
+            bintodec(v);
         }
-
-        long int number=0;
-
-        for(i=0;i<bin1.size();i++)
-        {
-            number = number + (bin1[i]*pow(2,i));
-        }
-
-        cout<<number<<endl;
     }
-
     return 0;
 }
-Language: C++14
