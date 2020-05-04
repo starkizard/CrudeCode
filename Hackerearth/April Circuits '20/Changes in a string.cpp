@@ -1,119 +1,55 @@
-/**
- *    author:  joshi8
- *    created:
-**/
-
+/*
+    Author: Aryan Yadav
+*/
 #include <bits/stdc++.h>
-
 using namespace std;
+
+#define ll long long
+#define mod 1000000007
+#define f(i, a, b) for (long long i = a; i < b; i++)
+#define rep(i, a, b) for (long long i = a; i <= b; i++)
+#define fm(i, a, b, c) for (long long i = a; i > b; i--)
+#define vi vector<int>
+#define vl vector<long long>
+#define vs vector<string>
+#define t     \
+    ll t;     \
+    cin >> t; \
+    while (t--)
+#define pb(i) push_back(i)
+#define mp(i, j) make_pair(i, j)
+#define fast                     \
+    ios::sync_with_stdio(false); \
+    cin.tie(NULL)
 
 int main()
 {
-    ios::sync_with_stdio(false);
-
-    long long int x,t;
-    cin>>t;
-    for(x=0;x<t;x++)
+    fast;
+    t
     {
-        long long int i,j,k,l,m,n,count=0,counta=0,countb=0,a,b,min;
-        char start;
-        vector <long long int> freq;
+        ll n;
+        cin >> n;
         string s;
-        cin>>n>>s;
-
-        for(i=0;i<n;i++)
+        cin >> s;
+        if (n < 2)
         {
-            if(i==0)
-            {
-                start = s[0];
-                count++;
-            }
-            else
-            if(s[i]==s[i-1])
-            {
-                count++;
-            }
-            else
-            if(s[i]!=s[i-1])
-            {
-                freq.push_back(count);
-                count=1;
-            }
-
-            if(s[i]=='A')
-                counta++;
-            else
-                countb++;
+            cout << "0\n";
         }
-        freq.push_back(count);
-
-        /*for(i=0;i<freq.size();i++)
-        {
-            if(start=='A')
-            {
-                if(i%2==0)
-                    counta+=freq[i];
-                else
-                    countb+=freq[i];
-            }
-            else
-            {
-                if(i%2==0)
-                    countb+=freq[i];
-                else
-                    counta+=freq[i];
-            }
-        }*/
-
-        a = 0;
-        b = countb;
-        min = counta;
-
-        if(countb<min)
-            min = countb;
-
-        for(i=freq.size()-1;i>=0;i--)
-        {
-            if(start=='A')
-            {
-                if(i%2!=0)
-                {
-                    b = b - freq[i];
-                }
-                else
-                {
-                    a = a + freq[i];
-                }
-
-                if(a+b<min)
-                {
-                    min = a+b;
-                }
-            }
-            else
-            {
-                if(i%2==0)
-                {
-                    b = b - freq[i];
-                }
-                else
-                {
-                    a = a + freq[i];
-                }
-
-                if(a+b<min)
-                {
-                    min = a+b;
-                }
-            }
-        }
-
-        if(counta==0 || countb==0)
-            cout<<0<<endl;
         else
-            cout<<min<<endl;
+        {
+            ll ca = 0, cb = 0;
+            f(i, 0, n)
+            {
+                if (s[i] == 'A')
+                    cb++;
+                else
+                {
+                    cb = min(ca, cb);
+                    ca++;
+                }
+            }
+            cout << min(ca, cb) << "\n";
+        }
     }
-
     return 0;
 }
-Language: C++14
