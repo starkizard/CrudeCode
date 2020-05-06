@@ -1,6 +1,10 @@
 /*
     Author: Aryan 
     https://codeforces.com/contest/343/problem/B
+
+    Logic: If the same sign repeats twice we can untangle that part as either they will be above the other wire or below.
+        Thus we keep on untangling as we get some repeated characters.
+        At last if stack is empty means we have untangled it completely.
 */
 #include <bits/stdc++.h>
 using namespace std;
