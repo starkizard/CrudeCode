@@ -1,6 +1,10 @@
 /*
     Author: Aryan Yadav
     https://codeforces.com/contest/797/problem/C
+
+    Logic: The intution after seeing the question was to use a stack as we can see that in a string t we can only add from front and can remove from the back i.e a hint to use stack.
+        We use a hash map to store the occurrence of charcters. As we iterate through the string we push the character in the stack and check if any character with lesser ASCII value is still present in the string and we do this by using the hashmap.
+        If there is character with lesser value we push the current character else we keep on popping the character from the stack and add to the answer string until we have a character whose value is greater than all of the values present in the original string or the stack becomes empty. 
 */
 #include <bits/stdc++.h>
 using namespace std;
