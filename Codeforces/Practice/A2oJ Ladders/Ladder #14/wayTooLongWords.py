@@ -1,6 +1,6 @@
 # auth: starkizard
 # Doing what the question says
 # code golfed for fun!
-# ONE LINER!
+# ONE LINER! 79 characters
 
-for n in range(int(input())):s=input();print([s,s[0]+str(len(s)-2)+s[-1]][len(s)>10])
+for _ in" "*int(input()):s=input();m=len(s)-2;print([s,s[0]+str(m)+s[-1]][m>8])
