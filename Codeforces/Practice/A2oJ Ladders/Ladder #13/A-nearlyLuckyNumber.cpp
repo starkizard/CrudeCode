@@ -1,6 +1,5 @@
 // auth: starkizard
-// just counting the number of elements , where element+k<=5, answer would be count/3
-
+// counting the number of 4s and 7s . then checking if in that count every digit is either 4 or 7.
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,24 +16,37 @@ using namespace std;
 #define pqmaxl priority_queue<ll>
 #define pqmini priority_queue<int, vi, greater<int>>
 #define pqminl priority_queue<ll, vl, greater<ll>>
-#define t     \
-    ll t;     \
-    cin >> t; \
-    while (t--)
+#define all(x) x.begin(), x.end()
+#define test     \
+    ll test;     \
+    cin >> test; \
+    while (test--)
 #define pb(i) push_back(i)
 #define mp(i, j) make_pair(i, j)
 #define fast                     \
     ios::sync_with_stdio(false); \
     cin.tie(NULL)
 
-int main(){
+int main()
+{
     fast;
-    ll n,k,a,count=0;
-    cin >> n >> k;
-    f(i,0,n){
-        cin >> a;
-        if(a+k<=5) count++;
+    string s;
+    cin >> s;
+    ll count=0;
+    for(auto i: s) if(i=='4' || i=='7') count++;
+    string cnt= to_string(count);
+    int flag=0;
+    for(auto i: cnt){
+        if(i!='4' && i!='7'){
+            flag=1;
+            break;
+        }
     }
-    cout << count/3 << "\n";
+    if(flag){
+        cout << "NO\n";
+    }
+    else{
+        cout << "YES\n";
+    }
     return 0;
 }
