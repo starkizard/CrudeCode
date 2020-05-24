@@ -1,5 +1,8 @@
 #author:starkizard
 #question at : https://www.codingame.com/ide/puzzle/1d-spreadsheet
+#implementation heavy problem
+#Could be optimized by using a stack, but meh
+
 def check(array):
     for i in array:
         if type(i)!=type(1):
