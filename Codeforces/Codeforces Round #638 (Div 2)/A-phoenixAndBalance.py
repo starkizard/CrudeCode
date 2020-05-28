@@ -1,4 +1,7 @@
 #auth: starkizard
+# if we have elements growing exponentially, (2^n or more) the next element would be greater than the sum of all previous elements
+# but, we have to divide the array into 2 halves right? so one half could be the biggest element plus the remaining most min elements
+# rest of the array goes into different sum and print abs (sum1-sum2)
 t=int(input())
 for _ in range(t):
     n=int(input())
