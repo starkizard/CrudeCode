@@ -1,5 +1,6 @@
 #auth: starkizard
 #question at: https://www.codingame.com/ide/puzzle/temperatures
+#calculating min for abs, if positive is present print that, else print -1*(the minimum)
 import sys
 import math
 n = int(input())
