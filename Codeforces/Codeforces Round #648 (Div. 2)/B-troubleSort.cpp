@@ -1,6 +1,5 @@
 //# keep in mind that swapping can be done on ANY two elements as long as their b is different.
 //# Definitely do not assume that the swapping could be done only on consecutive elements. and drop like 600 points on the question..
-//# definitely didn't happen to me
 //# So, if they are all of the same b , they have to be sorted , otherwise you can do nothing
 //# else, if there is even one difference, lets analyze
 //# let's say you want to insert the nth element at the correct place (just like insertion sort)
