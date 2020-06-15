@@ -1,5 +1,6 @@
 // auth: starkizard
 // only H , Q and 9 produce an output . + doesn't
+// check whether any oof these is present, if yes print yes else no
 #include <bits/stdc++.h>
 using namespace std;
 
