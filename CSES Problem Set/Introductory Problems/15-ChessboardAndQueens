@@ -9,28 +9,31 @@
 # if row becomes equal to 8, increment the counter for a valid solution.
 
 ways=0
-col=[]
-diag1=[]
-diag2=[]
+col,diag1,diag2=[],[],[]
 reserved=[[False for i in range(8)] for j in range(8)]
+
 def search(r):
     global ways
     if r==8:
         ways+=1
         return
+    
     for c in range(8):
         if(col[c] or diag1[r+c] or diag2[r-c+7] or reserved[r][c]):
             continue
+            
         col[c]=diag1[r+c]=diag2[r-c+7]=True
         search(r+1)
         col[c]=diag1[r+c]=diag2[r-c+7]=False
 
 def main():
+
     for i in range(16):
         col.append(False)
         diag1.append(False)
         diag2.append(False)
-    for i in range(8):
+   
+   for i in range(8):
         row=input()
         for j in range(len(row)):
             if row[j]=="*":
