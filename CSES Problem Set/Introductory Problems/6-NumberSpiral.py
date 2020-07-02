@@ -3,7 +3,7 @@
 # on close notice we can see this sequence can be formed by the recursion a(n)=a(n-1)+2*(n-1),a(1)=1
 # solving this recurrence , we get a(n) = n(n-1) + 1
 # now to find a number at row y and coloumn x, we first find n(n-1)+1 for n=max(y,x)
-# this makes us to go to the main diagonal , now we'll have two options , to go right or to go left
+# this makes us to go to the main diagonal , now we'll have two options , to go right or to go up
 # another pattern is noticed. the number to be reached when n is odd would be (n*(n-1) +1 + x-y) and (n*(n-1) + 1 + y-x) if even
 # solved in O(1)!!
 def main():
